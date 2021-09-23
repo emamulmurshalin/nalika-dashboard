@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ManageSilderController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -44,5 +45,9 @@ Route::get('/dashboard', function () {
 Route::get('/manage-slider', function () {
     return view('admin.slider.manage-slider');
 })->name('admin.dashboard');
+
+
+//Route
+Route::resource('slider', ManageSilderController::class);
 
 require __DIR__.'/auth.php';

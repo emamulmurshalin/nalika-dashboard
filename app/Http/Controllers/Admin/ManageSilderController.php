@@ -40,7 +40,17 @@ class ManageSilderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'text' => 'required|regex:/^[\pL\s\-]+$/u',
+            'image' => 'required|file',
+        ]);
+        $imageFile = $request->file('image') ? $request->file('image') : null;
+        if($imageFile = $request->file('image')){
+            //$name =  $file->getClientOriginalName();
+            $imageFileName = time().'.'.$imageFile->getClientOriginalExtension();
+            $request['image_path'] = 'image_'.$imageFileName;
+        }
+        return $this->service->saveSliderInfo($request->all(), $imageFile);
     }
 
     /**

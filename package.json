@@ -17,7 +17,7 @@
         "@vue/compiler-sfc": "^3.0.5",
         "alpinejs": "^2.7.3",
         "autoprefixer": "^10.2.4",
-        "axios": "^0.21",
+        "axios": "^0.21.4",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
         "postcss": "^8.2.13",
@@ -26,5 +26,10 @@
         "vue": "^2.6.10",
         "vue-loader": "^15.9.5",
         "vue-template-compiler": "^2.6.10"
+    },
+    "dependencies": {
+        "vform": "^2.1.1",
+        "vue-toast-notification": "^0.6.2",
+        "vue-axios": "^3.2.4"
     }
 }
