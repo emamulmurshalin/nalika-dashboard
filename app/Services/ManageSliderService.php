@@ -34,4 +34,50 @@ class ManageSliderService
             ];
         }
     }
+
+    public function showSlider()
+    {
+        return $this->model->paginate(10);
+    }
+
+    public function deleteSlider($id)
+    {
+        $slider = $this->model->findOrFail($id);
+        $dataDeleted = $slider->delete();
+
+        if ($dataDeleted){
+            return [
+                'status' => 200,
+                'message' => 'Employee deleted successfully',
+            ];
+        }
+    }
+
+    public function detailsSlider($id)
+    {
+        return $this->model->findOrFail($id);
+    }
+
+    public function updateSliderInfo($inputData, $id, $imageFile)
+    {
+        $slider = $this->model->findOrFail($id);
+        $imageFileName = time().'.'.$imageFile->getClientOriginalExtension();
+        $destination_path= '/images/slider-img';
+        if ($imageFile){
+            $inputData['slider_image'] = $imageFile->storeAs($destination_path, $imageFileName);
+            $dataSaved = $slider->update($inputData);
+            if ($dataSaved){
+                return [
+                    'status' => 200,
+                    'message' => 'Slider information updated successfully',
+                ];
+            }
+        }else{
+            $dataSaved = $slider->update($inputData);
+            return [
+                'status' => 404,
+                'message' => 'File not uploaded',
+            ];
+        }
+    }
 }

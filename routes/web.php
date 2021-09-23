@@ -49,5 +49,7 @@ Route::get('/manage-slider', function () {
 
 //Route
 Route::resource('slider', ManageSilderController::class);
+Route::post('/update-slider/{id}', [ManageSilderController::class, 'updateSlider'])
+    ->name('update.slider');
 
 require __DIR__.'/auth.php';

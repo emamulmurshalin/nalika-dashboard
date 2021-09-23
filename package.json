@@ -30,6 +30,8 @@
     "dependencies": {
         "vform": "^2.1.1",
         "vue-toast-notification": "^0.6.2",
-        "vue-axios": "^3.2.4"
+        "vue-axios": "^3.2.4",
+        "sweetalert2": "^11.0.16",
+        "vuejs-paginate": "^2.1.0"
     }
 }

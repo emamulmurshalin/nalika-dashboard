@@ -19,7 +19,7 @@ class ManageSilderController extends Controller
      */
     public function index()
     {
-        //
+        return $this->service->showSlider();
     }
 
     /**
@@ -45,11 +45,6 @@ class ManageSilderController extends Controller
             'image' => 'required|file',
         ]);
         $imageFile = $request->file('image') ? $request->file('image') : null;
-        if($imageFile = $request->file('image')){
-            //$name =  $file->getClientOriginalName();
-            $imageFileName = time().'.'.$imageFile->getClientOriginalExtension();
-            $request['image_path'] = 'image_'.$imageFileName;
-        }
         return $this->service->saveSliderInfo($request->all(), $imageFile);
     }
 
@@ -61,7 +56,7 @@ class ManageSilderController extends Controller
      */
     public function show($id)
     {
-        //
+        return $this->service->detailsSlider($id);
     }
 
     /**
@@ -95,6 +90,16 @@ class ManageSilderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return $this->service->deleteSlider($id);
+    }
+
+    public function updateSlider(Request $request, $id)
+    {
+        $this->validate($request, [
+            'text' => 'required|regex:/^[\pL\s\-]+$/u',
+            'image' => 'required|file',
+        ]);
+        $imageFile = $request->file('image') ? $request->file('image') : null;
+        return $this->service->updateSliderInfo($request->all(), $id, $imageFile);
     }
 }

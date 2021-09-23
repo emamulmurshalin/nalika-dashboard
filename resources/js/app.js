@@ -24,7 +24,15 @@ import VueToast from 'vue-toast-notification';
 import 'vue-toast-notification/dist/theme-sugar.css';
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import Swal from 'sweetalert2'
+window.swal = Swal;
+import Paginate from 'vuejs-paginate'
+Vue.component('paginate', Paginate)
 
+Vue.component(
+    'app-confirmation-modal',
+    require('./Nalika/Components/Views/Helpers/ConfirmationModal').default
+);
 Vue.component(
     'app-admin-dashboard',
     require('./Nalika/Components/Views/Dashboard/Dashboard').default
