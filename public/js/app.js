@@ -2899,6 +2899,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "ListView",
   data: function data() {
@@ -2934,6 +2937,10 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
+    showImage: function showImage(image) {
+      return '../storage/app/' + image;
+      console.log(image, 'hoise');
+    },
     deleteSlider: function deleteSlider(id) {
       this.deletedId = id;
       this.isConfirmationModal = true;
@@ -26067,7 +26074,15 @@ var render = function() {
                       _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(slider.text))]),
                       _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(slider.text))]),
+                      _c("td", [
+                        _c("a", { attrs: { href: "" } }, [
+                          _c("img", {
+                            staticClass: "pdf-icon",
+                            staticStyle: { height: "37px", width: "40px" },
+                            attrs: { src: "/" + slider.slider_image }
+                          })
+                        ])
+                      ]),
                       _vm._v(" "),
                       _c("td", [
                         _c(

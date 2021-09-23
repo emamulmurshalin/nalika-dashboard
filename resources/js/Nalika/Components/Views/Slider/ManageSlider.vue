@@ -38,7 +38,10 @@
                                 <a href="#">{{ slider.id }}</a>
                             </td>
                             <td>{{ slider.text }}</td>
-                            <td>{{ slider.text }}</td>
+                            <td><a href="">
+                                <img style="height: 37px; width: 40px;" class="pdf-icon"
+                                     :src="'/'+slider.slider_image">
+                            </a></td>
                             <td>
                                 <div class="hidden-sm hidden-xs action-buttons">
                                     <a class="green" href="#" @click.prevent="editSlider(slider.id)">
@@ -116,6 +119,10 @@ export default {
         }
     },
     methods:{
+        showImage(image){
+            return '../storage/app/' + image;
+            console.log(image, 'hoise');
+        },
         deleteSlider(id){
             this.deletedId = id;
             this.isConfirmationModal = true;
