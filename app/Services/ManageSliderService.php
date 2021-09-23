@@ -16,9 +16,9 @@ class ManageSliderService
     public function saveSliderInfo($inputData, $imageFile)
     {
         $imageFileName = time().'.'.$imageFile->getClientOriginalExtension();
-        $destination_path= 'public/images';
+        $destination_path= 'images';
         if ($imageFile){
-            $inputData['slider_image'] = $imageFile->storeAs($destination_path, $imageFileName);
+            $inputData['slider_image'] = $imageFile->storeAs($destination_path, $imageFileName, 'public');
             $dataSaved = $this->model->create($inputData);
             if ($dataSaved){
                 return [
@@ -62,9 +62,9 @@ class ManageSliderService
     {
         $slider = $this->model->findOrFail($id);
         $imageFileName = time().'.'.$imageFile->getClientOriginalExtension();
-        $destination_path= 'public/images';
+        $destination_path= 'images';
         if ($imageFile){
-            $inputData['slider_image'] = $imageFile->storeAs($destination_path, $imageFileName);
+            $inputData['slider_image'] = $imageFile->storeAs($destination_path, $imageFileName, 'public');
             $dataSaved = $slider->update($inputData);
             if ($dataSaved){
                 return [

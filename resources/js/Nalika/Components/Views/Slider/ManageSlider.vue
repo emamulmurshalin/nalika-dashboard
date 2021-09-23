@@ -38,10 +38,10 @@
                                 <a href="#">{{ slider.id }}</a>
                             </td>
                             <td>{{ slider.text }}</td>
-                            <td><a href="">
+                            <td>
                                 <img style="height: 37px; width: 40px;" class="pdf-icon"
-                                     :src="'/'+slider.slider_image">
-                            </a></td>
+                                     :src="'../storage/' + slider.slider_image">
+                            </td>
                             <td>
                                 <div class="hidden-sm hidden-xs action-buttons">
                                     <a class="green" href="#" @click.prevent="editSlider(slider.id)">

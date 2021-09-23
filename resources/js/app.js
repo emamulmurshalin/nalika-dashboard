@@ -1,4 +1,5 @@
 require('./bootstrap');
+require('alpinejs');
 
 import Vue from "vue";
 // import { createInertiaApp } from '@inertiajs/inertia-vue3';
